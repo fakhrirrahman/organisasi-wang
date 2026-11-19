@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { TickerBanner } from "@/components/sections/ticker-banner";
 import { AboutSection } from "@/components/sections/about-section";
 import { PurposeSection } from "@/components/sections/purpose-section";
+import { PhilosophySection } from "@/components/sections/philosophy-section";
 import { MembershipSection } from "@/components/sections/membership-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
@@ -27,6 +28,9 @@ export default function Home() {
 
         {/* Tujuan Berdirinya Forum & Latar Belakang Bahasa Daerah */}
         <PurposeSection />
+
+        {/* Filosofi Slogan Resmi: Speak • Share • Inspire */}
+        <PhilosophySection />
 
         {/* Keanggotaan & Lokasi: STKIP Taman Siswa & Kampus Kota Bima */}
         <MembershipSection />

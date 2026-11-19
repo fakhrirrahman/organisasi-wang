@@ -13,6 +13,7 @@ export function Navbar() {
   const navLinks = [
     { label: "Tentang & Pendiri", href: "#pendiri" },
     { label: "Tujuan Forum", href: "#tujuan" },
+    { label: "Filosofi Slogan", href: "#filosofi" },
     { label: "Keanggotaan", href: "#keanggotaan" },
     { label: "Kontak", href: "#kontak" },
   ];
@@ -65,12 +66,12 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-2">
+          <nav className="hidden md:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 text-sm font-bold text-black rounded-md hover:bg-[#FFD84D] hover:border-2 hover:border-black hover:shadow-[2px_2px_0_0_#000] transition-all"
+                className="px-2.5 py-1.5 text-xs xl:text-sm font-bold text-black rounded-md hover:bg-[#FFD84D] hover:border-2 hover:border-black hover:shadow-[2px_2px_0_0_#000] transition-all"
               >
                 {link.label}
               </a>
