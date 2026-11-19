@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
+@theme {
+  --color-neo-yellow: #FFD84D;
+  --color-neo-yellow-light: #FFF1A8;
+  --color-neo-yellow-hover: #FACC15;
+  --color-neo-cream: #FFFDF0;
+  --color-neo-bg: #FFF8E7;
+  --color-neo-blue: #38BDF8;
+  --color-neo-pink: #FF6B8B;
+  --color-neo-green: #00D084;
+  --color-neo-purple: #A78BFA;
+  --color-neo-orange: #FF7A00;
+  --color-neo-black: #121212;
+
+  --shadow-brutal-sm: 2px 2px 0px 0px #000000;
+  --shadow-brutal: 4px 4px 0px 0px #000000;
+  --shadow-brutal-lg: 6px 6px 0px 0px #000000;
+  --shadow-brutal-xl: 8px 8px 0px 0px #000000;
+  --shadow-brutal-2xl: 12px 12px 0px 0px #000000;
+
+  --font-heading: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FFF8E7;
+  --foreground: #121212;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Brutalist Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF8E7;
+  border-left: 3px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFD84D;
+  border: 3px solid #000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF7A00;
+}
+
+/* Background Pattern Helpers */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.15) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+/* Bima Tembe Nggoli Inspired Geometric Accent Pattern */
+.bg-tembe-motif {
+  background: repeating-linear-gradient(
+    45deg,
+    #FFD84D,
+    #FFD84D 12px,
+    #000000 12px,
+    #000000 16px,
+    #38BDF8 16px,
+    #38BDF8 28px,
+    #000000 28px,
+    #000000 32px
+  );
+}
+
+.bg-tape-warning {
+  background: repeating-linear-gradient(
+    -45deg,
+    #FFD84D,
+    #FFD84D 15px,
+    #121212 15px,
+    #121212 30px
+  );
+}
+
+/* Neobrutalist Component Helpers */
+.neo-border {
+  border: 3px solid #000000;
+}
+
+.neo-border-thick {
+  border: 4px solid #000000;
+}
+
+.neo-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.neo-shadow-lg {
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-shadow-xl {
+  box-shadow: 8px 8px 0px 0px #000000;
+}
+
+.neo-press {
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neo-press:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+/* Ticker marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
