@@ -1,17 +1,16 @@
 import React from "react";
 import { Ticker } from "@/components/ui/ticker";
+import { PROFILE } from "@/lib/data";
 
 export function TickerBanner() {
   const items = [
-    "FORTAIPUBING BIMA",
-    "SPEAK • SHARE • INSPIRE",
-    "LATIH BICARA LANTANG",
-    "BASIS: STKIP TAMAN SISWA BIMA",
-    "DARI MAHASISWA UNTUK MAHASISWA",
-    "BEBAS SALAH & SALING DUKUNG",
-    "KOTA BIMA • NTB",
-    "DIDIRIKAN MUHAMAD KAISAR",
-    "25 OKTOBER 2025",
+    PROFILE.name.toUpperCase(),
+    PROFILE.tagline.toUpperCase(),
+    PROFILE.fullName.toUpperCase(),
+    `PENDIRI: ${PROFILE.founder.name.toUpperCase()}`,
+    `EST. ${PROFILE.foundedDate.toUpperCase()}`,
+    `${PROFILE.location.city.toUpperCase()} (${PROFILE.location.province.toUpperCase()})`,
+    "STKIP TAMAN SISWA BIMA",
   ];
 
   return (
@@ -20,4 +19,3 @@ export function TickerBanner() {
     </div>
   );
 }
-

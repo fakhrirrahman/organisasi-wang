@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { Heart, MapPin, Calendar, ArrowUpRight, MessageCircle } from "lucide-react";
+import { MapPin, Calendar, MessageCircle, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { CONTACT_INFO, FOUNDER_DATA } from "@/lib/data";
+import { PROFILE } from "@/lib/data";
 
 export function Footer() {
   return (
@@ -10,12 +10,12 @@ export function Footer() {
       {/* Decorative colored top border */}
       <div className="h-3 w-full bg-tembe-motif" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           {/* Column 1: Brand & Logo */}
-          <div className="lg:col-span-5 space-y-5">
+          <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-14 h-14 rounded-xl border-2 border-white bg-[#15803D] overflow-hidden shadow-[4px_4px_0_0_#FFD84D]">
+              <div className="relative w-12 h-12 rounded-xl border-2 border-white bg-[#15803D] overflow-hidden shadow-[3px_3px_0_0_#FFD84D]">
                 <Image
                   src="/images/fortaipubing-logo.jpeg"
                   alt="Fortaipubing Logo"
@@ -25,102 +25,82 @@ export function Footer() {
               </div>
               <div>
                 <h3 className="font-heading font-black text-2xl tracking-tight text-[#FFD84D]">
-                  FORTAIPUBING
+                  {PROFILE.name.toUpperCase()}
                 </h3>
                 <p className="text-xs font-bold text-white/80 uppercase tracking-widest">
-                  Forum Training Public Speaking
+                  {PROFILE.fullName}
                 </p>
               </div>
             </div>
 
-            <p className="text-sm text-gray-300 leading-relaxed font-medium">
-              Web profil resmi forum latihan public speaking mahasiswa di Kota Bima (NTB).
-              Membentuk generasi muda yang berani menyampaikan gagasan, percaya diri
-              berbahasa Indonesia formal, dan siap menjadi pemimpin di panggung publik.
+            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-medium">
+              {PROFILE.purpose.coreGoal}
             </p>
 
-            <div className="flex flex-wrap gap-2 pt-2">
+            <div className="flex flex-wrap gap-2 pt-1">
               <Badge variant="yellow" size="sm">
-                Speak • Share • Inspire
+                {PROFILE.tagline}
               </Badge>
               <Badge variant="blue" size="sm">
-                Bima • NTB
-              </Badge>
-              <Badge variant="pink" size="sm">
-                Didirikan 25 Okt 2025
+                {PROFILE.location.city} • {PROFILE.location.province}
               </Badge>
             </div>
           </div>
 
-          {/* Column 2: Founder Tribute */}
-          <div className="lg:col-span-4 space-y-4 rounded-xl border-2 border-white/20 bg-white/5 p-5">
-            <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-md bg-[#FFD84D] text-black">
-                <Heart className="w-4 h-4 fill-black" />
-              </span>
-              <span className="font-heading font-black text-sm uppercase tracking-wider text-[#FFD84D]">
-                Inisiatif Mahasiswa untuk Bima
-              </span>
-            </div>
+          {/* Column 2: Founder Details */}
+          <div className="lg:col-span-4 space-y-3 rounded-xl border-2 border-white/20 bg-white/5 p-5">
+            <span className="font-heading font-black text-xs uppercase tracking-wider text-[#FFD84D] block">
+              Informasi Pendiri
+            </span>
             <p className="text-xs text-gray-300 leading-relaxed">
-              Didirikan oleh <strong className="text-white">{FOUNDER_DATA.name}</strong>, seorang
-              mahasiswa perantau asal <span className="text-[#38BDF8]">NTT, Pulau Flores (Kab. Manggarai Timur)</span>.
-              Digerakkan oleh kepedulian melihat rekan-rekan kuliahnya membutuhkan wadah latihan
-              yang ramah dan suportif untuk mengasah kelancaran berbicara dalam Bahasa Indonesia.
+              Didirikan oleh <strong className="text-white">{PROFILE.founder.name}</strong>, seorang{" "}
+              {PROFILE.founder.status.toLowerCase()} yang berasal dari{" "}
+              <span className="text-[#38BDF8]">{PROFILE.founder.origin}</span>.
             </p>
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-[#00D084]" /> Kota Bima, NTB
+            <div className="pt-2 border-t border-white/10 flex flex-col gap-1 text-xs text-white/70">
+              <span className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#FF6B8B]" /> Tanggal: {PROFILE.foundedDate}
               </span>
-              <span className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-[#FF6B8B]" /> 25 Okt 2025
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#00D084]" /> Domisili: {PROFILE.location.city}, {PROFILE.location.province}
               </span>
             </div>
           </div>
 
-          {/* Column 3: Contact & Info */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-heading font-black text-base uppercase tracking-wider text-[#FFD84D]">
-              Sekretariat & Kontak
+          {/* Column 3: Contact & Links */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="font-heading font-black text-sm uppercase tracking-wider text-[#FFD84D]">
+              Narahubung & Kontak
             </h4>
 
-            <div className="space-y-3 text-xs text-gray-300">
-              <div>
-                <span className="text-white font-bold block">Pusat Latihan:</span>
-                <span>Kompleks Kampus STKIP Taman Siswa Bima, Kota Bima, NTB</span>
-              </div>
-
-              <div>
-                <span className="text-white font-bold block">Kontak WhatsApp:</span>
-                <a
-                  href={CONTACT_INFO.whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#FFD84D] font-black underline hover:text-white inline-flex items-center gap-1"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 inline text-[#00D084]" />
-                  {CONTACT_INFO.whatsapp}
-                </a>
-              </div>
+            <div className="text-xs text-gray-300 space-y-2">
+              <p>Untuk pertanyaan lebih lanjut mengenai forum, hubungi WhatsApp resmi:</p>
+              <a
+                href={PROFILE.contact.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-heading font-black text-sm text-[#00D084] hover:underline"
+              >
+                <MessageCircle className="w-4 h-4 text-[#00D084]" />
+                {PROFILE.contact.whatsapp}
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#00D084]" />
+              </a>
             </div>
 
-            <ul className="space-y-1.5 text-xs font-semibold text-gray-300 pt-2 border-t border-white/10">
+            <ul className="space-y-1 text-xs font-semibold text-gray-300 pt-2 border-t border-white/10">
               <li>
-                <a href="#profil" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1">
-                  <span>Profil & Visi Forum</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                <a href="#pendiri" className="hover:text-[#FFD84D] transition-colors">
+                  Tentang Pendiri
                 </a>
               </li>
               <li>
-                <a href="#program" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1">
-                  <span>4 Pilar Program Latihan</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                <a href="#tujuan" className="hover:text-[#FFD84D] transition-colors">
+                  Tujuan Berdirinya Forum
                 </a>
               </li>
               <li>
-                <a href="#jadwal" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1">
-                  <span>Jadwal Sesi Tatap Muka</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                <a href="#keanggotaan" className="hover:text-[#FFD84D] transition-colors">
+                  Keanggotaan Mahasiswa
                 </a>
               </li>
             </ul>
@@ -128,12 +108,10 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t-2 border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p>© 2025–2026 Fortaipubing (Forum Training Public Speaking Bima). Web Profile & Komunitas Mahasiswa.</p>
-          <div className="flex items-center gap-4">
-            <span className="text-white/80 font-bold">STKIP Taman Siswa Bima & Kampus Mitra</span>
-            <span>•</span>
-            <span className="text-[#FFD84D] font-bold">Dana Mbojo Bersuara</span>
+        <div className="mt-10 pt-6 border-t-2 border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/60">
+          <p>© 2025–2026 {PROFILE.name} ({PROFILE.fullName}). Web Profil Resmi.</p>
+          <div className="flex items-center gap-2">
+            <span>STKIP Taman Siswa Bima & Kampus Kota Bima</span>
           </div>
         </div>
       </div>

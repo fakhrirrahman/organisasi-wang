@@ -2,63 +2,43 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { TickerBanner } from "@/components/sections/ticker-banner";
-import { ProfileOverview } from "@/components/sections/profile-overview";
-import { WhyFortaipubing } from "@/components/sections/why-fortaipubing";
-import { FounderStory } from "@/components/sections/founder-story";
-import { StructuredCurriculum } from "@/components/sections/structured-curriculum";
-import { InteractiveSpeechTimer } from "@/components/sections/interactive-speech-timer";
-import { CampusNetwork } from "@/components/sections/campus-network";
-import { WeeklyAgenda } from "@/components/sections/weekly-agenda";
-import { Testimonials } from "@/components/sections/testimonials";
-import { RegistrationSection } from "@/components/sections/registration-section";
-import { FAQSection } from "@/components/sections/faq-section";
+import { AboutSection } from "@/components/sections/about-section";
+import { PurposeSection } from "@/components/sections/purpose-section";
+import { MembershipSection } from "@/components/sections/membership-section";
+import { ContactSection } from "@/components/sections/contact-section";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FFF8E7] text-[#121212] selection:bg-[#FFD84D] selection:text-black">
-      {/* Navigation Bar */}
+      {/* Header Navigasi */}
       <Navbar />
 
-      {/* Main Content Area */}
+      {/* Konten Utama Web Profile */}
       <main className="flex-1 flex flex-col">
-        {/* Hero Section with Official Logo & Badges */}
+        {/* Hero Profil: Logo Resmi, Tagline, dan Identitas Utama */}
         <HeroSection />
 
-        {/* Marquee Ticker */}
+        {/* Ticker Berjalan */}
         <TickerBanner />
 
-        {/* Profil Resmi Organisasi, Visi & Misi */}
-        <ProfileOverview />
+        {/* Profil Pendiri: Muhamad Kaisar & Tanggal Pendirian 25 Okt 2025 */}
+        <AboutSection />
 
-        {/* Latar Belakang & Visi (Bahasa Bima vs Percaya Diri Bahasa Indonesia) */}
-        <WhyFortaipubing />
+        {/* Tujuan Berdirinya Forum & Latar Belakang Bahasa Daerah */}
+        <PurposeSection />
 
-        {/* Kisah Pendiri (Muhamad Kaisar - 25 Okt 2025 - Flores ke Kota Bima) */}
-        <FounderStory />
+        {/* Keanggotaan & Lokasi: STKIP Taman Siswa & Kampus Kota Bima */}
+        <MembershipSection />
 
-        {/* 4 Pilar Kurikulum Latihan Terstruktur */}
-        <StructuredCurriculum />
-
-        {/* Simulator Interaktif: Latihan Bicara 60 Detik */}
-        <InteractiveSpeechTimer />
-
-        {/* Jaringan Kampus: STKIP Taman Siswa & Kampus Mitra Kota Bima */}
-        <CampusNetwork />
-
-        {/* Jadwal & Agenda Latihan Tatap Muka */}
-        <WeeklyAgenda />
-
-        {/* Testimoni Mahasiswa */}
-        <Testimonials />
-
-        {/* Formulir Pendaftaran Anggota */}
-        <RegistrationSection />
-
-        {/* FAQ & Informasi */}
-        <FAQSection />
+        {/* Kontak WhatsApp untuk Pertanyaan Lebih Lanjut */}
+        <ContactSection />
       </main>
 
-      {/* Footer Profil Organisasi & Kontak */}
+      {/* Icon WA Bulat Melayang di Pojok Kanan Bawah */}
+      <WhatsAppButton />
+
+      {/* Footer Profil */}
       <Footer />
     </div>
   );
