@@ -2,13 +2,12 @@
 
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
-import { Send, CheckCircle2, MessageCircle, PhoneCall } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Modal } from "@/components/ui/modal";
-import { CONTACT_INFO } from "@/lib/data";
 
 export function RegistrationSection() {
   const [formData, setFormData] = useState({
@@ -232,24 +231,8 @@ export function RegistrationSection() {
               </Button>
             </div>
 
-            {/* Direct WhatsApp Alternative */}
-            <div className="pt-2 text-center">
-              <span className="text-xs text-black/60 font-bold block mb-2">
-                — ATAU INGIN KONSULTASI / TANYA DULU? —
-              </span>
-              <a
-                href={CONTACT_INFO.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-black text-emerald-800 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg border-2 border-black shadow-[2px_2px_0_0_#000] transition-all"
-              >
-                <MessageCircle className="w-4 h-4 text-emerald-700" />
-                <span>Hubungi Koordinator via WhatsApp: {CONTACT_INFO.whatsapp}</span>
-              </a>
-            </div>
-
             <p className="text-center text-xs font-bold text-black/60 pt-2">
-              🔒 Data kamu aman dan hanya digunakan oleh tim koordinator Fortaipubing untuk koordinasi jadwal latihan.
+              🔒 Data pendaftaran kamu aman dan digunakan untuk pendataan anggota forum.
             </p>
           </form>
         </div>
@@ -259,7 +242,7 @@ export function RegistrationSection() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title="Selamat Bergabung di Fortaipubing!"
+        title="Pendaftaran Berhasil!"
         headerColor="bg-[#BBF7D0]"
       >
         <div className="space-y-4 text-center">
@@ -268,50 +251,33 @@ export function RegistrationSection() {
           </div>
 
           <h4 className="font-heading font-black text-2xl text-black">
-            Pendaftaran Berhasil, {submittedName}!
+            Selamat Bergabung, {submittedName}!
           </h4>
 
           <p className="text-sm font-semibold text-black/80 leading-relaxed">
-            Selamat telah mengambil langkah pertama menghancurkan rasa ragu.
-            Koordinator forum kami akan segera menghubungimu lewat WhatsApp untuk
-            mengonfirmasi sesi latihan perdana di Kota Bima!
+            Data kamu telah tercatat di basis anggota Fortaipubing.
+            Koordinator forum akan segera menghubungimu untuk konfirmasi sesi latihan perdana di Kota Bima.
           </p>
 
           <div className="p-4 rounded-xl border-2 border-black bg-[#FFFDF0] text-left text-xs font-bold text-black/90 space-y-2">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span><strong>Jadwal Berikutnya:</strong> Setiap Sabtu, 15.30 WITA</span>
+              <span><strong>Jadwal Latihan Rutin:</strong> Setiap Sabtu, 15.30 WITA</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-amber-500" />
               <span><strong>Lokasi:</strong> Kampus STKIP Taman Siswa Bima</span>
             </div>
-            <div className="flex items-center gap-2 pt-1 border-t border-black/10">
-              <PhoneCall className="w-3.5 h-3.5 text-emerald-600" />
-              <span><strong>WhatsApp Koordinator:</strong> {CONTACT_INFO.whatsapp}</span>
-            </div>
           </div>
 
-          <div className="space-y-2 pt-2">
-            <a
-              href={CONTACT_INFO.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full block"
-            >
-              <Button size="default" variant="green" className="w-full gap-2">
-                <MessageCircle className="w-4 h-4" />
-                Chat WhatsApp Sekarang (+62 812-3886-8140)
-              </Button>
-            </a>
-
+          <div className="pt-2">
             <Button
               size="default"
-              variant="outline"
+              variant="default"
               onClick={() => setIsModalOpen(false)}
               className="w-full"
             >
-              Tutup & Siap Latihan!
+              Tutup & Siap Hadir di Panggung
             </Button>
           </div>
         </div>

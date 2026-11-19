@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { CONTACT_INFO, FOUNDER_DATA } from "@/lib/data";
 import {
   Building2,
@@ -9,7 +8,6 @@ import {
   Compass,
   MapPin,
   MessageCircle,
-  PhoneCall,
   Target,
   Users,
 } from "lucide-react";
@@ -30,13 +28,13 @@ export function ProfileOverview() {
             </span>
           </h2>
           <p className="text-base sm:text-lg text-black/80 font-semibold leading-relaxed">
-            Ringkasan identitas, legalitas akar rumput, pendiri, dan pusat kegiatan forum
+            Ringkasan identitas, pendiri, legalitas gerakan akar rumput, dan visi-misi forum
             latihan public speaking mahasiswa di Kota Bima.
           </p>
         </div>
 
         {/* Profile Card & Info Matrix */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Official ID Card */}
           <div className="lg:col-span-5 rounded-2xl border-[4px] border-black bg-white p-6 sm:p-8 shadow-[8px_8px_0_0_#000] space-y-6">
             <div className="flex items-center justify-between border-b-2 border-black/10 pb-4">
@@ -44,7 +42,7 @@ export function ProfileOverview() {
                 KARTU IDENTITAS FORUM
               </span>
               <span className="text-xs font-black bg-[#BBF7D0] px-2.5 py-0.5 rounded border border-black text-emerald-900">
-                RESMI & AKTIF
+                AKTIF SEJAK 2025
               </span>
             </div>
 
@@ -77,14 +75,14 @@ export function ProfileOverview() {
             <div className="space-y-3 pt-2 text-xs sm:text-sm font-bold text-black/85">
               <div className="flex items-start justify-between p-3 rounded-lg border-2 border-black bg-[#FFFDF0]">
                 <span className="text-black/60 flex items-center gap-1.5 shrink-0">
-                  <Calendar className="w-4 h-4 text-amber-600" /> Didirikan:
+                  <Calendar className="w-4 h-4 text-amber-600" /> Tanggal Berdiri:
                 </span>
                 <span className="text-right">{CONTACT_INFO.foundedDate}</span>
               </div>
 
               <div className="flex items-start justify-between p-3 rounded-lg border-2 border-black bg-[#FFFDF0]">
                 <span className="text-black/60 flex items-center gap-1.5 shrink-0">
-                  <Users className="w-4 h-4 text-blue-600" /> Pendiri / Inisiator:
+                  <Users className="w-4 h-4 text-blue-600" /> Inisiator & Pendiri:
                 </span>
                 <span className="text-right">
                   <strong>{FOUNDER_DATA.name}</strong>
@@ -96,7 +94,7 @@ export function ProfileOverview() {
 
               <div className="flex items-start justify-between p-3 rounded-lg border-2 border-black bg-[#FFFDF0]">
                 <span className="text-black/60 flex items-center gap-1.5 shrink-0">
-                  <MapPin className="w-4 h-4 text-red-600" /> Lokasi Kegiatan:
+                  <MapPin className="w-4 h-4 text-red-600" /> Wilayah Forum:
                 </span>
                 <span className="text-right">{CONTACT_INFO.location}</span>
               </div>
@@ -108,34 +106,19 @@ export function ProfileOverview() {
                 <span className="text-right">STKIP Taman Siswa Bima</span>
               </div>
 
-              <div className="flex items-start justify-between p-3 rounded-lg border-2 border-black bg-[#DCFCE7]">
-                <span className="text-black/70 flex items-center gap-1.5 shrink-0 font-black">
-                  <MessageCircle className="w-4 h-4 text-emerald-700" /> WhatsApp Tanya:
+              <div className="flex items-start justify-between p-3 rounded-lg border-2 border-black bg-[#FFFDF0]">
+                <span className="text-black/60 flex items-center gap-1.5 shrink-0">
+                  <MessageCircle className="w-4 h-4 text-emerald-600" /> Kontak WhatsApp:
                 </span>
                 <a
                   href={CONTACT_INFO.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-right text-emerald-800 font-black underline hover:text-black"
+                  className="text-right text-black font-black underline hover:text-emerald-700"
                 >
                   {CONTACT_INFO.whatsapp}
                 </a>
               </div>
-            </div>
-
-            {/* Quick Contact Button */}
-            <div className="pt-2">
-              <a
-                href={CONTACT_INFO.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full block"
-              >
-                <Button size="default" variant="green" className="w-full gap-2">
-                  <MessageCircle className="w-4 h-4" />
-                  Chat WhatsApp: {CONTACT_INFO.whatsapp}
-                </Button>
-              </a>
             </div>
           </div>
 
@@ -160,7 +143,7 @@ export function ProfileOverview() {
               <div className="flex items-center gap-2">
                 <Compass className="w-6 h-6 text-black stroke-[2.5]" />
                 <h3 className="font-heading font-black text-xl uppercase tracking-wider text-black">
-                  Misi Utama Kami
+                  Misi Utama Forum
                 </h3>
               </div>
 
@@ -183,7 +166,7 @@ export function ProfileOverview() {
                   <p>
                     <strong>Jembatan Bahasa Daerah ke Nasional:</strong> Melatih transisi bertutur
                     dari kebiasaan bahasa sehari-hari (Bahasa Bima) ke Bahasa Indonesia baku tanpa
-                    menghilangkan rasa bangga pada identitas kedaerahan.
+                    mengurangi rasa bangga pada identitas kedaerahan.
                   </p>
                 </div>
 
@@ -192,38 +175,11 @@ export function ProfileOverview() {
                     3
                   </span>
                   <p>
-                    <strong>Silaturahmi & Kolaborasi Lintas Kampus:</strong> Mempererat solidaritas
-                    antar mahasiswa STKIP Taman Siswa, STIE Bima, IAIM, Poltekkes, dan kampus lain di Kota Bima.
+                    <strong>Solidaritas Antar-Kampus:</strong> Mempererat jejaring komunikasi
+                    antara mahasiswa STKIP Taman Siswa, STIE Bima, IAIM, Poltekkes, dan kampus lain di Kota Bima.
                   </p>
                 </div>
               </div>
-            </div>
-
-            {/* Direct Help Callout Banner */}
-            <div className="p-4 sm:p-5 rounded-xl border-2 border-dashed border-black bg-[#FFF8E7] flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg border-2 border-black bg-[#00D084] flex items-center justify-center shrink-0">
-                  <PhoneCall className="w-5 h-5 text-black" />
-                </div>
-                <div>
-                  <div className="font-heading font-black text-sm text-black">
-                    Butuh Informasi Lebih Lengkap?
-                  </div>
-                  <div className="text-xs font-semibold text-black/70">
-                    Hubungi WhatsApp resmi: <strong>{CONTACT_INFO.whatsapp}</strong>
-                  </div>
-                </div>
-              </div>
-              <a
-                href={CONTACT_INFO.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0"
-              >
-                <Button size="sm" variant="dark">
-                  Chat WA Langsung →
-                </Button>
-              </a>
             </div>
           </div>
         </div>

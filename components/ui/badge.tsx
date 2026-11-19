@@ -60,3 +60,4 @@ function Badge({
 }
 
 export { Badge };
+

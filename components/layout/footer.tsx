@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { Heart, MapPin, Calendar, ArrowUpRight, MessageCircle, PhoneCall } from "lucide-react";
+import { Heart, MapPin, Calendar, ArrowUpRight, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { CONTACT_INFO } from "@/lib/data";
+import { CONTACT_INFO, FOUNDER_DATA } from "@/lib/data";
 
 export function Footer() {
   return (
@@ -13,7 +13,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Column 1: Brand & Logo */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-5 space-y-5">
             <div className="flex items-center gap-3">
               <div className="relative w-14 h-14 rounded-xl border-2 border-white bg-[#15803D] overflow-hidden shadow-[4px_4px_0_0_#FFD84D]">
                 <Image
@@ -34,7 +34,7 @@ export function Footer() {
             </div>
 
             <p className="text-sm text-gray-300 leading-relaxed font-medium">
-              Web profil resmi wadah latihan berbicara terstruktur untuk mahasiswa di Kota Bima (NTB).
+              Web profil resmi forum latihan public speaking mahasiswa di Kota Bima (NTB).
               Membentuk generasi muda yang berani menyampaikan gagasan, percaya diri
               berbahasa Indonesia formal, dan siap menjadi pemimpin di panggung publik.
             </p>
@@ -59,72 +59,67 @@ export function Footer() {
                 <Heart className="w-4 h-4 fill-black" />
               </span>
               <span className="font-heading font-black text-sm uppercase tracking-wider text-[#FFD84D]">
-                Inisiatif Anak Rantau untuk Bima
+                Inisiatif Mahasiswa untuk Bima
               </span>
             </div>
             <p className="text-xs text-gray-300 leading-relaxed">
-              Didirikan oleh <strong className="text-white">Muhamad Kaisar</strong>, mahasiswa
-              perantau asal <span className="text-[#38BDF8]">NTT, Pulau Flores, Kab. Manggarai Timur</span>.
-              Tergerak oleh semangat kebersamaan melihat rekan-rekan kuliahnya membutuhkan ruang aman
-              dan suportif untuk melatih kelancaran berbahasa Indonesia.
+              Didirikan oleh <strong className="text-white">{FOUNDER_DATA.name}</strong>, seorang
+              mahasiswa perantau asal <span className="text-[#38BDF8]">NTT, Pulau Flores (Kab. Manggarai Timur)</span>.
+              Digerakkan oleh kepedulian melihat rekan-rekan kuliahnya membutuhkan wadah latihan
+              yang ramah dan suportif untuk mengasah kelancaran berbicara dalam Bahasa Indonesia.
             </p>
             <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
               <span className="flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-[#00D084]" /> Kota Bima, NTB
               </span>
               <span className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-[#FF6B8B]" /> Sejak 25 Okt 2025
+                <Calendar className="w-3.5 h-3.5 text-[#FF6B8B]" /> 25 Okt 2025
               </span>
             </div>
           </div>
 
-          {/* Column 3: Contact & WhatsApp Helpdesk */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Column 3: Contact & Info */}
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="font-heading font-black text-base uppercase tracking-wider text-[#FFD84D]">
-              Kontak & Layanan Informasi
+              Sekretariat & Kontak
             </h4>
-            
-            <div className="rounded-xl border-2 border-white/20 bg-white/5 p-4 space-y-3">
-              <div className="text-xs text-gray-300">
-                Ada pertanyaan mengenai jadwal, gabung latihan, atau kolaborasi kampus?
+
+            <div className="space-y-3 text-xs text-gray-300">
+              <div>
+                <span className="text-white font-bold block">Pusat Latihan:</span>
+                <span>Kompleks Kampus STKIP Taman Siswa Bima, Kota Bima, NTB</span>
               </div>
 
-              <div className="p-3 rounded-lg border-2 border-[#00D084] bg-emerald-950/40 space-y-1">
-                <div className="text-[10px] font-black uppercase text-[#00D084] tracking-wider flex items-center gap-1.5">
-                  <PhoneCall className="w-3 h-3" /> WhatsApp Koordinator Resmi:
-                </div>
-                <div className="font-heading font-black text-base text-white">
+              <div>
+                <span className="text-white font-bold block">Kontak WhatsApp:</span>
+                <a
+                  href={CONTACT_INFO.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#FFD84D] font-black underline hover:text-white inline-flex items-center gap-1"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 inline text-[#00D084]" />
                   {CONTACT_INFO.whatsapp}
-                </div>
+                </a>
               </div>
-
-              <a
-                href={CONTACT_INFO.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg border-2 border-black bg-[#25D366] text-black font-black text-xs uppercase tracking-wider shadow-[3px_3px_0_0_#FFF] hover:bg-[#20ba5a] active:translate-x-0.5 active:translate-y-0.5"
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Chat WhatsApp Sekarang
-              </a>
             </div>
 
-            <ul className="space-y-1.5 text-xs font-semibold text-gray-300 pt-1">
+            <ul className="space-y-1.5 text-xs font-semibold text-gray-300 pt-2 border-t border-white/10">
               <li>
-                <a href="#profil" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1 border-b border-white/10">
-                  <span>Profil Lengkap Fortaipubing</span>
+                <a href="#profil" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1">
+                  <span>Profil & Visi Forum</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="#program" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1 border-b border-white/10">
-                  <span>Kurikulum Latihan 4 Tahap</span>
+                <a href="#program" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1">
+                  <span>4 Pilar Program Latihan</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="#jadwal" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1 border-b border-white/10">
-                  <span>Jadwal Tatap Muka di STKIP Tamsis</span>
+                <a href="#jadwal" className="hover:text-[#FFD84D] transition-colors flex items-center justify-between py-1">
+                  <span>Jadwal Sesi Tatap Muka</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
               </li>

@@ -3,17 +3,16 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, Mic, MessageCircle } from "lucide-react";
+import { Menu, X, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CONTACT_INFO } from "@/lib/data";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const navLinks = [
     { label: "Profil", href: "#profil" },
-    { label: "Visi & Akar Rumput", href: "#visi" },
+    { label: "Visi & Misi", href: "#visi" },
     { label: "Kisah Pendiri", href: "#tentang" },
     { label: "Program", href: "#program" },
     { label: "Latihan 60d", href: "#simulator" },
@@ -24,27 +23,19 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full">
-      {/* Top Ticker / Banner */}
+      {/* Top Banner */}
       <div className="bg-[#121212] text-[#FFD84D] border-b-2 border-black py-1 px-4 text-xs font-bold flex items-center justify-between">
         <div className="flex items-center gap-2 overflow-hidden whitespace-nowrap">
           <span className="flex h-2 w-2 rounded-full bg-[#00D084] animate-ping" />
           <span className="tracking-wide">
-            WEB PROFIL RESMI FORTAIPUBING BIMA (NTB) • BERDIRI 25 OKTOBER 2025
+            WEB PROFIL RESMI FORTAIPUBING • FORUM TRAINING PUBLIC SPEAKING BIMA (NTB)
           </span>
         </div>
-        <div className="hidden md:flex items-center gap-4 shrink-0 text-xs text-white/90">
+        <div className="hidden md:flex items-center gap-3 shrink-0 text-xs text-white/90">
           <span className="bg-[#FFD84D] text-black px-2 py-0.5 rounded font-black text-[10px]">
-            BASIS: STKIP TAMAN SISWA BIMA
+            BASIS: STKIP TAMAN SISWA
           </span>
-          <a
-            href={CONTACT_INFO.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-[#00D084] transition-colors"
-          >
-            <MessageCircle className="w-3.5 h-3.5 text-[#00D084]" />
-            <span>WA: {CONTACT_INFO.whatsapp}</span>
-          </a>
+          <span>Kota Bima, NTB</span>
         </div>
       </div>
 
@@ -53,7 +44,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
           {/* Logo & Brand */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 rounded-lg border-2 border-black bg-[#15803D] overflow-hidden shadow-[2px_2px_0_0_#000] group-hover:rotate-3 transition-transform">
+            <div className="relative w-12 h-12 rounded-lg border-2 border-black bg-[#15803D] overflow-hidden shadow-[2px_2px_0_0_#000] group-hover:rotate-3 transition-transform shrink-0">
               <Image
                 src="/images/fortaipubing-logo.jpeg"
                 alt="Logo Fortaipubing"
@@ -90,20 +81,8 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Action Button & Mobile Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href={CONTACT_INFO.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-block"
-            >
-              <Button size="default" variant="green" className="gap-1.5">
-                <MessageCircle className="w-4 h-4" />
-                <span>Tanya WA</span>
-              </Button>
-            </a>
-
+          {/* Single Action Button & Mobile Toggle */}
+          <div className="flex items-center gap-3">
             <a href="#gabung" className="hidden sm:inline-block">
               <Button size="default" variant="default" className="gap-2">
                 <Mic className="w-4 h-4" />
@@ -148,20 +127,7 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <div className="pt-2 space-y-2">
-              <a
-                href={CONTACT_INFO.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full block"
-              >
-                <Button size="lg" variant="green" className="w-full">
-                  <MessageCircle className="w-5 h-5 mr-1" />
-                  Tanya via WhatsApp (+62 812-3886-8140)
-                </Button>
-              </a>
-
+            <div className="pt-2">
               <a
                 href="#gabung"
                 onClick={() => setMobileMenuOpen(false)}

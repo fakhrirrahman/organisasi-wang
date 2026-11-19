@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { FAQS, CONTACT_INFO } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { AccordionItem } from "@/components/ui/accordion";
-import { MessageCircle, PhoneCall } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 type FAQCategory = "semua" | "umum" | "latihan" | "keanggotaan";
 
@@ -41,8 +41,7 @@ export function FAQSection() {
             </span>
           </h2>
           <p className="text-base sm:text-lg text-black/80 font-semibold leading-relaxed">
-            Masih ada keraguan sebelum ikut latihan? Temukan jawabannya di bawah ini
-            atau hubungi langsung koordinator kami.
+            Pertanyaan umum seputar keanggotaan, metode latihan, dan jadwal forum di Kota Bima.
           </p>
         </div>
 
@@ -80,27 +79,20 @@ export function FAQSection() {
           ))}
         </div>
 
-        {/* Contact direct link to WhatsApp */}
-        <div className="mt-12 text-center p-6 sm:p-8 rounded-2xl border-[3px] border-black bg-[#BBF7D0] shadow-[6px_6px_0_0_#000] space-y-3">
-          <div className="flex items-center justify-center gap-2 font-heading font-black text-xl text-black">
-            <MessageCircle className="w-6 h-6 stroke-[2.5]" />
-            Punya Pertanyaan Spesifik yang Belum Terjawab?
-          </div>
-          <p className="text-sm font-semibold text-black/85 max-w-xl mx-auto">
-            Koordinator kami siap membantu menjawab pertanyaan seputar program, jadwal latihan,
-            hingga kolaborasi antar kampus di Kota Bima.
-          </p>
-          <div className="pt-2">
+        {/* Contact note */}
+        <div className="mt-10 text-center p-5 rounded-xl border-2 border-black bg-white shadow-[3px_3px_0_0_#000]">
+          <p className="text-sm font-semibold text-black/80">
+            Punya pertanyaan lain yang belum terjawab? Hubungi narahubung di WhatsApp:{" "}
             <a
               href={CONTACT_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-[3px] border-black bg-white font-heading font-black text-sm uppercase tracking-wider shadow-[4px_4px_0_0_#000] hover:bg-black hover:text-white transition-all cursor-pointer"
+              className="font-black text-black underline hover:text-emerald-700 inline-flex items-center gap-1"
             >
-              <PhoneCall className="w-4 h-4 text-emerald-600" />
-              Chat WhatsApp Langsung: {CONTACT_INFO.whatsapp} →
+              <MessageCircle className="w-3.5 h-3.5 inline text-emerald-600" />
+              {CONTACT_INFO.whatsapp}
             </a>
-          </div>
+          </p>
         </div>
       </div>
     </section>

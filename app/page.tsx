@@ -12,23 +12,22 @@ import { WeeklyAgenda } from "@/components/sections/weekly-agenda";
 import { Testimonials } from "@/components/sections/testimonials";
 import { RegistrationSection } from "@/components/sections/registration-section";
 import { FAQSection } from "@/components/sections/faq-section";
-import { WhatsAppFloat } from "@/components/ui/whatsapp-float";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FFF8E7] text-[#121212] selection:bg-[#FFD84D] selection:text-black">
-      {/* Navigation */}
+      {/* Navigation Bar */}
       <Navbar />
 
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col">
-        {/* Hero Section with Official Logo & Core Badges */}
+        {/* Hero Section with Official Logo & Badges */}
         <HeroSection />
 
-        {/* High-energy Marquee Ticker */}
+        {/* Marquee Ticker */}
         <TickerBanner />
 
-        {/* Profil Resmi Organisasi, Legalitas Akar Rumput & Kontak WhatsApp */}
+        {/* Profil Resmi Organisasi, Visi & Misi */}
         <ProfileOverview />
 
         {/* Latar Belakang & Visi (Bahasa Bima vs Percaya Diri Bahasa Indonesia) */}
@@ -43,26 +42,23 @@ export default function Home() {
         {/* Simulator Interaktif: Latihan Bicara 60 Detik */}
         <InteractiveSpeechTimer />
 
-        {/* Jaringan Kampus: STKIP Taman Siswa & Mitra se-Kota Bima */}
+        {/* Jaringan Kampus: STKIP Taman Siswa & Kampus Mitra Kota Bima */}
         <CampusNetwork />
 
         {/* Jadwal & Agenda Latihan Tatap Muka */}
         <WeeklyAgenda />
 
-        {/* Testimoni Transformasi Mahasiswa */}
+        {/* Testimoni Mahasiswa */}
         <Testimonials />
 
-        {/* Form Pendaftaran Anggota Baru (100% Gratis) */}
+        {/* Formulir Pendaftaran Anggota */}
         <RegistrationSection />
 
-        {/* FAQ & Bantuan Informasi */}
+        {/* FAQ & Informasi */}
         <FAQSection />
       </main>
 
-      {/* Floating Neobrutalist WhatsApp Widget */}
-      <WhatsAppFloat />
-
-      {/* Footer with Cultural Pride & Contacts */}
+      {/* Footer Profil Organisasi & Kontak */}
       <Footer />
     </div>
   );

@@ -62,3 +62,4 @@ export interface FounderInfo {
   quote: string;
   story: string[];
 }
+
